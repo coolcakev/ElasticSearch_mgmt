@@ -1,0 +1,25 @@
+﻿@await RenderSectionAsync("mod", required: false)
+@{
+    ViewData["Title"] = "table";
+}
+
+
+    <table>
+        <thead>
+            <tr>
+                @await RenderSectionAsync("head", required: false)
+
+            </tr>
+        </thead>
+    </table>
+    <div class="scroll-table-body">
+        <table>
+            <tbody>
+                @await RenderSectionAsync("row", required: false)
+
+            </tbody>
+        </table>
+    </div>
+
+
+

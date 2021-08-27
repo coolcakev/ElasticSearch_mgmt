@@ -1,0 +1,59 @@
+﻿
+
+
+
+@{
+    ViewData["Title"] = "ViewProp";
+    Layout = "table";
+
+}
+@section mod{
+    @model List<Property>
+}
+
+{
+
+
+@section head{
+    <th>id</th>
+
+    <th>name</th>
+    <th>formerName</th>
+    <th>market</th>
+    <th>state</th>
+    <th>streetAddress</th>
+    <th>city</th>
+    <th>lat</th>
+    <th>lng</th>
+
+}
+
+
+@*@foreach (var item in Model.searchperson.Documents)*@
+@section row{
+    @foreach (var item in Model)
+
+    {
+        <tr>
+
+            <td>@item?.propertyID</td>
+
+            <td>@item?.name</td>
+            <td>@item?.formerName</td>
+            <td>@item?.market</td>
+            <td>@item?.state</td>
+            <td>@item?.streetAddress</td>
+            <td>@item?.city</td>
+            <td>@item?.lat</td>
+            <td>@item?.lng</td>
+
+
+
+        </tr>
+
+    }
+}
+
+
+
+

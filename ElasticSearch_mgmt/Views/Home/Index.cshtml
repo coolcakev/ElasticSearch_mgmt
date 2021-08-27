@@ -1,0 +1,83 @@
+﻿@model allform
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div style="display:flex">
+
+    <div>
+        <form class="form" asp-controller="Home" asp-action="Index">
+            <p> enter phase</p>
+
+            <input type="text" asp-for="Validform.phase" data-autocomplete-source='@Url.Action("automgmt", "Autocomp")' />
+            <span class="clos"></span>
+            <span asp-validation-for="Validform.phase"></span>
+
+            <p> choose market</p>
+            <select asp-for="Validform.market">
+                <option value="null">всі маркети</option>
+
+                @foreach (var item in Model.market)
+                {
+                    <option value="@item">@item</option>
+                }
+            </select>
+
+            <p> enter quvontyty</p>
+
+            <input type="text" asp-for="Validform.count" value="25" />
+            <span asp-validation-for="Validform.count"></span>
+
+            <input type="submit" id="submit" act="ViewMgmt" value="Search" />
+
+        </form>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div>
+        <form class="form"asp-controller="Home" asp-action="Index" method="post">
+            <p> enter phase</p>
+            <input type="text" asp-for="Validform.phase" data-autocomplete-source='@Url.Action("autoprop", "Autocomp")' />
+            <span class="clos"></span>
+
+            <span asp-validation-for="Validform.phaseProperty"></span>
+
+            <p> choose market</p>
+            <select asp-for="Validform.market">
+                <option value="null">всі маркети</option>
+
+                @foreach (var item in Model.marketProperty)
+                {
+                    <option value="@item">@item</option>
+                }
+            </select>
+
+            <p> enter quvontyty</p>
+
+            <input type="text" asp-for="Validform.count" value="25" />
+            <span asp-validation-for="Validform.countProperty"></span>
+
+            <input type="submit" id="submit" act="ViewProp" value="Search" />
+
+        </form>
+
+
+
+    </div>
+</div>
+<h3>Search Results</h3>
+
+<div id="results" class="scroll-table"></div>
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}

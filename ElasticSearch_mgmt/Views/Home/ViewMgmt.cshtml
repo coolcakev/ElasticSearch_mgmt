@@ -1,0 +1,43 @@
+﻿
+
+@{
+    ViewData["Title"] = "ViewMgmt";
+    
+
+    Layout = "table";
+}
+@section mod{
+    @model List<MGMT>
+}
+
+{
+
+
+@section head{
+    <th>id</th>
+
+    <th>назва</th>
+    <th>маркет</th>
+    <th>штат</th>
+
+}
+
+
+@*@foreach (var item in Model.searchperson.Documents)*@
+@section row{
+    @foreach (var item in Model)
+
+    {
+        <tr>
+            <td>@item?.mgmtID</td>
+
+            <td>@item?.name</td>
+            <td>@item?.market</td>
+            <td>@item?.state</td>
+
+
+
+        </tr>
+
+    }
+}
